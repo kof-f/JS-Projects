@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Countdown Clock</title>
+	<style type="text/css">
+	body{
+		background: #000000;
+	}
+	.clock-num{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%);
+		color: #FFFFFF;
+		font-size: 80px;
+		font-family: Montserrat, sans-serif;
+	}
+	</style>
+</head>
+	<div id = ".clock-section" class="clock-num"></div>
+	<script type="text/javascript">
+		
+		function countdown(){
+			let now = new Date();
+			// use the index of the month, not the number of the month
+			let eventDate = new Date(now.getFullYear(), 11, 25);
+			
+			// convert the date to millseconds to find the difference between the two dates
+			let currentTime = now.getTime();
+			let eventTime = eventDate.getTime();
+
+			let remTime = eventTime - currentTime;
+
+			// converting millseconds to seconds
+			let sec = Math.floor(remTime / 1000);
+			let min = Math.floor(sec / 60);
+			let hour = Math.floor(min / 60);
+			let day = Math.floor(hour / 60);
+
+			hour %= 24;
+			min %= 60;
+			sec %= 60;
+
+		}
+
+		function displayTime(h, m, s){
+			let timeOfDay = "AM";
+		
+			// converting the hours to standard time and setting AM to false if it's past noon
+			if (h == 0) {
+				hour = 12;
+			} else if (h > 12) {
+				hour = h - 12;
+			} else if (h < 10){
+				hour = `0${h}`;
+			} else {
+				hour = h;
+			}
+		
+			// adding a 0 to the minutes if it's less than 10
+			min = m < 10 ? `0${m}` : m;
+		
+			// adding a 0 to the seconds if it's less than 10
+			sec = s < 10 ? `0${s}` : s;
+			let timeRemaining = `${hour}:${min}:${sec} ${timeOfDay}`;
+		
+			// copying time to the div (using inner text and text content to support 
+      		// Firefox and IE
+			document.getElementById(".clock-section").innerText = time;
+			document.getElementById(".clock-section").textContent = time;
+		
+			// call the displayTime method every 1000 milliseconds 
+			setTimeout(displayTime, 1000);
+		}
+		displayTime();
+	</script>
+</body>
+</html>
