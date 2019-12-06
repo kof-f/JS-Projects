@@ -23,9 +23,11 @@
 	<div id = ".clock-section" class="clock-num"></div>
 	
 	  <form>
-    	<input type="text" id="date" placeholder="MM/DD/YYYY" value="">
+    	<input type="text" id="eventName" placeholder="Event Name (optional)" value="">
+    	<input type="number" id="eventMonth" placeholder="Event Month (format: MM)" value="">
+    	<input type="number" id="eventDay" placeholder="Event Day (format: DD)" value="">
+    	<input type="number" id="eventYear" placeholder="Event Year (format: YYYY)" value="">
     	<input type="button" value="Submit" onclick="startDisplay()" />
-    	<div id="alert" style="color: red"></div>
   	</form>
 	<script type="text/javascript">
 
@@ -34,13 +36,25 @@
 		let min;
 		let hour;
 		let day;
-		
+
 		function countdown(){
-			let now = new Date();
-			// use the index of the month, not the number of the month
-			let eventDate = new Date(now.getFullYear(), 11, 25);
 			
-			// convert the date to millseconds to find the difference between the two dates
+			// initailizing to be used for the current time
+			let now = new Date();
+
+			// taking input from the form to create event date object
+			let eventMonthData = document.getElementById("eventMonth".value);
+			let eventDayData = document.getElementById("eventDay".value);
+			let eventYearData = document.getElementById("eventYear".value);
+
+			console.log(eventMonthData);
+			console.log(eventDayData);
+			console.log(eventYearData);
+
+			// use the index of the month, not the number of the month
+			let eventDate = new Date(eventYearData, eventMonth-1, eventDay);
+			
+			// convert the dates to millseconds to find the difference between the two dates
 			let currentTime = now.getTime();
 			let eventTime = eventDate.getTime();
 
@@ -56,10 +70,19 @@
 			min %= 60;
 			sec %= 60;
 
+			console.log(hour);
+			console.log(min);
+			console.log(sec);
+
 		}
 
-		function displayTime(h, m, s){
-		
+		function display(eventName, h, m, s){
+			
+			// set eventName to "event" if it's not set
+			if (eventName == ""){
+				eventName = "event";
+			}
+
 			// converting the hours to standard time
 			if (h == 0) {
 				hour = 12;
@@ -83,12 +106,15 @@
 			sec + " seconds."].join("\n");
 					
 			// copying time to the div (using inner text and text content to support Firefox and IE
-			document.getElementById(".clock-section").innerText = timeRemaining;
-			document.getElementById(".clock-section").textContent = timeRemaining; 
+			document.getElementById(".clock-section").innerText = "Countdown to " + eventName + ": " + timeRemaining;
+			document.getElementById(".clock-section").textContent = "Countdown to " + eventName + ": " + timeRemaining; 
 		}
 
 		function startDisplay(){
-			setInterval( function(){ countdown(); displayTime(hour, min, sec); }, 1000);
+			let eventNameData = document.getElementById("eventName").value;
+			
+			setInterval( function(){ countdown(); display(eventNameData, hour, min, sec); }, 1000);
+
 		}
 	</script>
 </body>
