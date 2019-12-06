@@ -21,6 +21,12 @@
 	</style>
 </head>
 	<div id = ".clock-section" class="clock-num"></div>
+	
+	  <form>
+    	<input type="text" id="date" placeholder="MM/DD/YYYY" value="">
+    	<input type="button" value="Submit" onclick="startDisplay()" />
+    	<div id="alert" style="color: red"></div>
+  	</form>
 	<script type="text/javascript">
 
 		// initializing variables
@@ -75,18 +81,15 @@
 			hour + " hours",
 			min + " minutes",
 			sec + " seconds."].join("\n");
-
-			console.log(timeRemaining);
 					
-			// copying time to the div (using inner text and text content to support 
-      		// Firefox and IE
+			// copying time to the div (using inner text and text content to support Firefox and IE
 			document.getElementById(".clock-section").innerText = timeRemaining;
-			document.getElementById(".clock-section").textContent = timeRemaining;
-		
-			 
+			document.getElementById(".clock-section").textContent = timeRemaining; 
 		}
-		// call the two methods every 1000 milliseconds
-		setInterval( function(){ countdown(); displayTime(hour, min, sec); }, 1000);
+
+		function startDisplay(){
+			setInterval( function(){ countdown(); displayTime(hour, min, sec); }, 1000);
+		}
 	</script>
 </body>
 </html>
