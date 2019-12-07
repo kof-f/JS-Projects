@@ -24,9 +24,7 @@
 	
 	  <form>
     	<input type="text" id="eventName" placeholder="Event Name (optional)" value="">
-    	<input type="number" id="eventMonth" placeholder="Event Month (format: MM)" value="">
-    	<input type="number" id="eventDay" placeholder="Event Day (format: DD)" value="">
-    	<input type="number" id="eventYear" placeholder="Event Year (format: YYYY)" value="">
+    	<input type="text" id="eventDate" placeholder="Event Date (format: YYYY-MM-DD)" value="">
     	<input type="button" value="Submit" onclick="startDisplay()" />
   	</form>
 	<script type="text/javascript">
@@ -43,16 +41,8 @@
 			let now = new Date();
 
 			// taking input from the form to create event date object
-			let eventMonthData = document.getElementById("eventMonth".value);
-			let eventDayData = document.getElementById("eventDay".value);
-			let eventYearData = document.getElementById("eventYear".value);
-
-			console.log(eventMonthData);
-			console.log(eventDayData);
-			console.log(eventYearData);
-
-			// use the index of the month, not the number of the month
-			let eventDate = new Date(eventYearData, eventMonth-1, eventDay);
+			let eventDateData = document.getElementById("eventDate").value;
+			let eventDate = new Date(eventDateData);
 			
 			// convert the dates to millseconds to find the difference between the two dates
 			let currentTime = now.getTime();
@@ -69,10 +59,6 @@
 			hour %= 24;
 			min %= 60;
 			sec %= 60;
-
-			console.log(hour);
-			console.log(min);
-			console.log(sec);
 
 		}
 
@@ -112,7 +98,6 @@
 
 		function startDisplay(){
 			let eventNameData = document.getElementById("eventName").value;
-			
 			setInterval( function(){ countdown(); display(eventNameData, hour, min, sec); }, 1000);
 
 		}
