@@ -21,12 +21,13 @@
 	</style>
 </head>
 	<div id = ".clock-section" class="clock-num"></div>
-	
 	  <form>
     	<input type="text" id="eventName" placeholder="Event Name (optional)" value="">
     	<input type="text" id="eventDate" placeholder="Event Date (format: YYYY-MM-DD)" value="">
     	<input type="button" value="Submit" onclick="startDisplay()" />
   	</form>
+
+
 	<script type="text/javascript">
 
 		// initializing variables
@@ -62,34 +63,19 @@
 
 		}
 
-		function display(eventName, h, m, s){
+		function display(eventName){
 			
 			// set eventName to "event" if it's not set
 			if (eventName == ""){
 				eventName = "event";
 			}
 
-			// converting the hours to standard time
-			if (h == 0) {
-				hour = 12;
-			} else if (h > 12) {
-				hour = h - 12;
-			} else if (h < 10){
-				hour = `0${h}`;
-			} else {
-				hour = h;
-			}
-		
-			// adding a 0 to the minutes if it's less than 10
-			min = m < 10 ? `0${m}` : m;
-		
-			// adding a 0 to the seconds if it's less than 10
-			sec = s < 10 ? `0${s}` : s;
-
 			let timeRemaining = [day + " days", 
 			hour + " hours",
 			min + " minutes",
 			sec + " seconds."].join("\n");
+
+			console.log(timeRemaining);
 					
 			// copying time to the div (using inner text and text content to support Firefox and IE
 			document.getElementById(".clock-section").innerText = "Countdown to " + eventName + ": " + timeRemaining;
@@ -98,7 +84,7 @@
 
 		function startDisplay(){
 			let eventNameData = document.getElementById("eventName").value;
-			setInterval( function(){ countdown(); display(eventNameData, hour, min, sec); }, 1000);
+			setInterval( function(){ countdown(); display(eventNameData); }, 1000);
 
 		}
 	</script>
