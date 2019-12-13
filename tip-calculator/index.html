@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Countdown Clock</title>
+	<title>Tip Calculator</title>
 	<style type="text/css">
 	body{
 		background: #000000;
@@ -22,10 +22,11 @@
 </head>
 	<div id = ".clock-section" class="clock-num"></div>
 	  <form>
-    	<input type="text" id="eventName" placeholder="Event Name (optional)" value="">
-    	<input type="text" id="eventDate" placeholder="Event Date (format: YYYY-MM-DD)" value="">
+		<input type="number" id="numOfGuests" placeholder="Number of guests (optional)" value="">
+		<input type="text" id="totalAmountPaid" placeholder="Total amount of the bill" value="">
+		<input type="number" id="tipPercent" placeholder="Percent of bill to tip" value="">
     	<input type="button" value="Submit" onclick="startDisplay()" />
   	</form>
 </body>
-<script src="./countdown.js"></script>
+<script src="./tip-calculator.js"></script>
 </html>
