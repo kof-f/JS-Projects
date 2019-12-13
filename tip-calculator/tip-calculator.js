@@ -1,8 +1,6 @@
 // initializing variables
 let tipAmount;
 let tipAmountPerGuest;
-let percentOfTip;
-let day;
 
 function tipCalculator(numOfGuests, totalAmountPaid, percentOfTip){
     
@@ -12,7 +10,7 @@ function tipCalculator(numOfGuests, totalAmountPaid, percentOfTip){
      */
 
     // handling edge cases
-    if (numOfGuests > 1) {
+    if (numOfGuests < 1) {
         numOfGuests = 1;
     }
 
@@ -21,15 +19,9 @@ function tipCalculator(numOfGuests, totalAmountPaid, percentOfTip){
 
     // calculate the amount each guest should tip
     tipAmountPerGuest = tipAmount / numOfGuests;
-
 }
 
 function display(){
-    
-    // set eventName to "event" if it's not set
-    if (eventName == ""){
-        eventName = "event";
-    }
 
     let tipInformation = ["The total amount you should tip is: $" + tipAmount, 
     "Each guest should tip: $" + tipAmountPerGuest].join("\n");
@@ -51,5 +43,4 @@ function startDisplay(){
 
     // display the tip on the web page
     display();
-
 }
