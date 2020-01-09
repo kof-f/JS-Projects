@@ -6,21 +6,23 @@
     // initializing variables
     let totalNumOfClasses = 5;
     let calculatedGPA;
-    let classInformation;
+    let classInformation = {};
     let displayClassInfo = [];
     
     function addClasses(){
     
+    	btnHere = document.getElementById("btnAddClasses");
     	let newClassFormDiv = document.createElement("div");
         let newClassFormDivVertical = document.createElement("div");
         let newClassFieldLabel = document.createElement("LABEL");
         newClassFormDiv.classList.add("form-div");
         newClassFormDivVertical.classList.add("form-div-vertical");
         newClassFieldLabel.classList.add("field-label.gpa-calc.small");
+        newClassFieldLabel.innerText = "Class Name";
         
         newClassFormDivVertical.appendChild(newClassFieldLabel);
         newClassFormDiv.appendChild(newClassFormDivVertical);
-        GPAForm.appendChild(newClassFormDiv);
+        GPAForm.insertBefore(newClassFormDiv, btnHere);
     }
     
     function GPACalculator(classInformation){
@@ -34,7 +36,7 @@
        	let totalGradePoints = 0;
         let totalCreditHours = 0;
         // handling empty fields and populating the display information
-        for (let i = 0; i < Object.keys(classInformation).length; i++){ 
+        for (let i = 1; i < Object.keys(classInformation).length+1; i++){ 
             // class name field is empty
             if (classInformation[i][0] == ""){
                 classInformation[i][0] = "Class " + classCount;
@@ -58,7 +60,6 @@
            // adding all of the credit hours
            totalCreditHours += parseInt(classInformation[i][2]);
         }
-    }
        console.log(totalGradePoints);
        console.log(totalCreditHours);
        GPA = totalGradePoints / totalCreditHours;
@@ -81,50 +82,15 @@
 
     function startDisplay(){
         
-        for (int i = 1; i < totalNumOfClasses+1; i++){
+        for (let i = 1; i < totalNumOfClasses+1; i++){
             
             let className = document.getElementById("class" + i + "Name").value;
             let classGrade = document.getElementById("class" + i + "Grade").value;
             let classCreditHours = document.getElementById("class" + i + "CreditHours").value;
 
             classInformation[i] = [className, classGrade, classCreditHours];
-
         }
         
-        // // first class info
- 		// let firstClassName = document.getElementById("firstClassName").value;
-        // let firstClassGrade = document.getElementById("firstClassGrade").value;
-        // let firstClassCreditHours = document.getElementById("firstClassCreditHours").value;
-        
-        // // second class info
-        // let secondClassName = document.getElementById("secondClassName").value;
-        // let secondClassGrade = document.getElementById("secondClassGrade").value;
-        // let secondClassCreditHours = document.getElementById("secondClassCreditHours").value;
-        
-        // // third class info
-        // let thirdClassName = document.getElementById("thirdClassName").value;
-        // let thirdClassGrade = document.getElementById("thirdClassGrade").value;
-        // let thirdClassCreditHours = document.getElementById("thirdClassCreditHours").value;
-        
-        // // fourth class info
-        // let fourthClassName = document.getElementById("fourthClassName").value;
-        // let fourthClassGrade = document.getElementById("fourthClassGrade").value;
-        // let fourthClassCreditHours = document.getElementById("fourthClassCreditHours").value;
-        
-        // // fifth class info
-        // let fifthClassName = document.getElementById("fifthClassName").value;
-        // let fifthClassGrade = document.getElementById("fifthClassGrade").value;
-        // let fifthClassCreditHours = document.getElementById("fifthClassCreditHours").value;
-        
-        // organizing class info into object to be passed into GPACalculator function
-        // classInformation = {
-        // 0:[firstClassName, firstClassGrade, firstClassCreditHours],
-        // 1:[secondClassName, secondClassGrade, secondClassCreditHours],
-        // 2:[thirdClassName, thirdClassGrade, thirdClassCreditHours],
-        // 3:[fourthClassName, fourthClassGrade, fourthClassCreditHours],
-        // 4:[fifthClassName, fifthClassGrade, fifthClassCreditHours],
-        // };
- 
 		// run the calculation
         GPACalculator(classInformation);
 
@@ -133,4 +99,4 @@
     }
     GPAForm.addEventListener('submit', startDisplay);
     document.getElementById("btnAddClasses").onclick = addClasses;
-	</script>
+</script>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<script type="text/javascript">
+	// HELLO WORLD AND COMMENTS
+	// console.log("Hello World!") // in-line comment (end of the line of code)
+
+	/* this is a
+	multi-line coment
+	*/
+
+	// DATA TYPES
+	/* Data Types:
+	undefined, null, boolean, string, symbol, number, and object
+	undefined: something that's not defined (var not set to anything)
+	null: set it to nothing (var set to nothing)
+	boolean: true/false
+	symbol: immutable (cannot change over time) primitive value that is unique
+	object: store lots of key,value pairs
+	*/
+
+	// ESCAPING
+	/*****
+	CODE OUTPUT
+	\' : single quote
+	\" : double quote
+	\\ : backslash
+	\n : new line
+	\r : carriage return
+	\t : tab
+	\b : backspace
+	\f : form feed
+	*****/
+	let quotesInsideString = "Shamar told me, \n\"I love you,\" and I said, \"I love you too.\"";
+	let singleQuotesString = 'Shamar told me, \"I love you,\" and I said, \"I love you too.\"';
+	let backticksString = `Shamar told me, 'I love you,' and I said, "I love you too."`;
+	// console.log(quotesInsideString);
+	// console.log(singleQuotesString);
+	// console.log(backticksString);
+
+	// LENGTH OF A STRING
+	// use .length property to return the length of a string
+	let lengthOfString = quotesInsideString.length;
+	// console.log("The length of the Shamar quote string is " + String(lengthOfString) + " characters.");
+
+	// BRACKET NOTATION (INDEXING)
+	let alphabet = "abcdefg";
+	// console.log("The first letter of the alphabet is " + alphabet[0] + ".");
+
+	// ARRAYS (TREATED LIKE STACKS)
+	/*****
+	.push(put_element_here) : adds to the end of the array (like append in Python)
+	.pop() : removes the last element of the array
+	.shift() : removes the first element of the array
+	.unshift(put_element_here) : adds element to the beginning of the array
+	JSON.stringify(put_array_here) : converts an array to a string that can be printed
+	*****/
+	let myFamily = ["Kofi", "Kwame", "Kathleen", "William"];
+	let shamarFamily = ["Shamar", "Michelle", "Alonzo"];
+	// console.log(myFamily);
+	let myExtendedFamily = [];
+	myExtendedFamily.push(myFamily);
+	myExtendedFamily.push(shamarFamily);
+
+	// console.log(myExtendedFamily);
+
+	// FUNCTIONS
+	function doSomething(){
+	    console.log("I'm doing something.")
+	}
+
+	// OPERATORS
+	/***** 
+	== : equality operator (attempts to convert both values to the same type)
+	=== : strict equality operator (does not attempt to convert both values to the same type)
+	!= : inequality operator (attempts to convert both values to the same type)
+	!== : strict inequality operator (does not attempt to convert both values to the same type)
+	> : greater than
+	>= : greater than or equal to
+	< : less than
+	<= : less than or equal to
+	&& : and
+	|| : or
+
+	Examples with equality operators:
+	10 == "10" (true, does type conversion)
+	10 === "10" (false, does not do type conversion)
+	10 != "10" (false, does type conversion)
+	10 !== "10" (true, does not do type conversion)
+	*****/
+
+	// console.log(10 == "10");
+	// console.log(10 === "10");
+	// console.log(10 != "10");
+	// console.log(10 !== "10");
+
+	// SWITCH STATEMENTS
+	// good to use instead of if, else if, else statements
+
+	function switchPractice(val){
+	    let result = ""
+	    switch(val){
+	        case "Kofi":
+	            result = "That's me!";
+	            break;
+	        case "Parker":
+	        case "Curtis":
+	        case "Kyrhee":
+	            result = "That's my friend!";
+	            break;
+	        case "Kwame":
+	        case "Alex":
+	            result = "That's my brother!";
+	            break;
+	        case "Webflow":
+	        case "Google":
+	            result = "That's where I'll be working!";
+	            break;
+	        default: 
+	            result = "I don't understand.";
+	            break;
+	    }
+	    return result
+	}
+
+	// console.log(switchPractice("Kofi"))
+	// console.log(switchPractice("Parker"))
+	// console.log(switchPractice("Curtis"))
+	// console.log(switchPractice("Alex"))
+	// console.log(switchPractice("Webflow"))
+	// console.log(switchPractice("Google"))
+
+	// OBJECTS (basically JavaScripts version of a dictionary)
+	// every hashmap is an object, but not every object is a hashmap
+	/*****
+	bracket notation is required to access properties with space in it
+	delete object.property : deletes a property from the object
+	.hasOwnProperty(property) : checks if the object has a property (returns boolean value)
+	JSON.parse(JSON.stringify(object)) : makes a copy of the object
+	Object.freeze(object) : to make the properties in the object constants
+	Destructuring : a neat way to assign object values to variables
+	getters and setters : accessed like properties
+	*****/
+
+	let project = {
+	    "name" : "AKB",
+	    "yearOfCreation" : 2017,
+	    "stateOfCreation" : "Delaware",
+	    "founder" : "Kizzle",
+	    "website" : "akizzlebrand.com",
+	    "name of partners" : ["Parker", "James", "Jabari"]
+	};
+
+	const LOCAL_FORECAST = {
+	    today: {min: 72, max: 83},
+	    tomorrow: {min: 84.9, max: 90}
+	};
+
+	project["name of partners"].push("Zoe");
+
+	let {"name" : name, "yearOfCreation" : yearOfCreation} = project; // destructuring example (sets "name" property to the variable name and sets "yearOfCreation" property to the variable yearOfCreation)
+	let {today : {min : minOfToday}} = LOCAL_FORECAST
+
+	const createPerson = (name, age, gender) => ({name, age, gender}); // creates an object and assigns the parameters of the arrow function name, age, and gender as values of properties in the object with the same name
+
+	class Org{
+	    constructor(name, founder){
+	        this.name = name;
+	        this.founder = founder;
+	    }
+	    
+	    get name(){
+	        return this._name;
+	    }
+	    
+	    set name(updatedName){
+	        this._name = updatedName;
+	    }
+	}
+
+	var AKB = new Org("AKB", "Kizzle");
+
+	console.log(AKB.name);
+	console.log(AKB.name);
+	console.log(AKB.founder);
+	console.log(minOfToday);
+	console.log(createPerson("Kofi", 22, "M"));
+
+
+	// console.log(project.stateOfCreation)
+	// console.log(JSON.stringify(project["name of partners"]))
+
+	// LOOPS (same as java)
+	/*****
+	do-while loop: will always execute at least once and then check the condition
+	*****/
+
+	let arr = []
+	for (var i = 0; i < 5; i++){
+	    arr.push(i);
+	}
+
+	let arr2 = []
+	var i = 0;
+	while(i < 5){
+	    arr2.push(i);
+	    i++;
+	}
+
+	let arr3 = [];
+	var i = 10;
+
+	do {
+	    arr3.push(i)
+	    i++;
+	} while (i < 5)
+
+	// console.log(arr3)
+
+	function multiplyAll(nestedArr){
+	    let results = [];
+	    for (var i = 0; i < nestedArr.length; i++){
+	        let product;
+	        for (var j = 0; j < nestedArr[i].length; j++){
+	            if (j == 0){
+	                product = nestedArr[i][j];
+	            } else {
+	                product *= nestedArr[i][j]  
+	            }  
+	        }
+	        results.push(product);
+	    }
+	    return results;
+	}
+
+	// console.log(multiplyAll([[3,4], [5,5,7], [6,7]]));
+
+	// RANDOM NUMBER GENERATOR
+	/*****
+	Math.random() : generates a random number between 0 and 1 (could be 0, but not 1)
+	Math.floor(Math.random() * n) : generates a random whole number between 0 and n
+	*****/
+
+	// PARSE INT (takes a string and converts it into an integer)
+	/*****
+	Radix : can be used with parseInt to convert the str into an base n int
+	Example: parseInt("56", 2) will return "56" as the binary number 111000
+	*****/
+
+	// TERNARY OPERATORS
+	// condition ? statement-if-true : statement-if-false;
+
+	let a = 2;
+	let b = 3;
+
+	// console.log(b > a ? "b is greater than a" : "b is less than a");
+
+	// ARROW FUNCTIONS
+	// when one function takes another function as an argument it's good to use arrow functions
+	// good to use with filter, map and reduce for data processing 
+
+	var concatenatedArr = function(arr1, arr2){
+	    return arr1.concat(arr2);
+	}
+
+	var concatenatedArr = (arr1, arr2) => arr1.concat(arr2);
+
+	// console.log(concatenatedArr([2,3], [4,5,6]))
+
+	const realNumberArray = [34, 4, 6, 4.5, -7, 0, 3, 42, 3.2456722, -2]
+
+	const squareList = (arr) => {
+	    const squaredNumbers = arr.filter(num => Number.isInteger(num) && num > 0).map(x => x * x);
+	    return squaredNumbers;
+	}
+
+	// console.log(squareList(realNumberArray));
+
+	const increment = (function() {
+	    return function increment(number, value = 1){
+	        return number + value;
+	    }
+	})();
+
+	// console.log(increment(5, 2));
+	// console.log(increment(5));
+
+
+	// REST OPERATOR
+	// ...args : takes parameters that are passed in and converts them to an array called args
+	const sum = (function() {
+	    return function sum(...args) {
+	        return args.reduce((a,b) => a + b, 0);
+	    };
+	})();
+
+	// console.log(sum(1,2,3));
+
+	// SPREAD OPERATOR
+	// arr2 = [...arr1] : makes a copy of arr1 and puts it in arr2
+
+	const arr5 = ['JAN', 'FEB', 'MAR', 'APR', 'MAY'];
+	let arr6;
+	(function() {
+	    arr6 = [...arr5];
+	    arr5[0] = 'potato'; // won't affect the contents in ar6
+	})();
+
+	// console.log(arr6);
+
+	// IMPORT AND EXPORT
+	/*****
+	export functions from one file, so you can import them in another file to reuse code
+	export {code} : exports line of code so it can be imported
+	import {function} from "./filename : imports a specific function from the file specified
+	import * as object from "file" : import everything from a file and store it in object
+	export default : exports one thing from the file as a fallback
+	import object from "file" : imports the default export from a file
+	*****/
+
+
+	// GOOD PRACTICE
+	/*****
+	"use strict"; : used to make sure there are no code errors like undeclared variables in your JS
+	let instead of var : use let instead of var for declaring variables
+	BE CAREFUL USING LET : it works only inside of the block scope
+	backticks instead of quotes for strings : allows variables inside of the string
+	use _ with getters and setters : use the _ before properties with getters and setters
+	const : should be defined using all capital letters
+	camelCase : for variable names
+	*****/
+</script>
