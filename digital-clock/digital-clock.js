@@ -4,6 +4,7 @@
     // initializing variables
     let date = new Date();
     let dayOfWeek;
+    let numOfDay;
     let hour;
     let min;
     let sec;
