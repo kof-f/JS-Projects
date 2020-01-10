@@ -1,3 +1,4 @@
+"use strict";
 
 let GPAForm = document.getElementById("wf-form-GPA-Form");
 let addMoreClassesBtn = document.getElementById("btnAddClasses");
@@ -9,6 +10,9 @@ let classInformation = {};
 let displayClassInfo = [];
 
 function addClasses(){
+
+    // add to the global total number of classes variable
+    totalNumOfClasses++;
 
     let newClassFormDiv = document.createElement("div");
     let newClassFormDivVertical = document.createElement("div");
@@ -32,8 +36,10 @@ function addClasses(){
     newClassFieldLabelRight.classList.add("field-label.gpa-calc");
     newClassFieldLabelRight.innerText = "Credit Hours";
 
-    // adding styling to the field input
+    // adding styling and ID to the field input
     newClassFieldInput.classList.add("form2-input.form2-input-dark");
+    newClassFieldInput.setAttribute("id", "class" + totalNumOfClasses + "Name");
+
     
     newClassFormDivVertical.appendChild(newClassFieldLabel);
     newClassFormDivVertical.appendChild(newClassFieldInput);
