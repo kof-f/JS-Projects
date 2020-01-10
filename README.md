@@ -18,7 +18,8 @@ that will be tracked and add to the overall GPA calculation
 once the submit button is pressed.
 
 ### Future Work (using Node.js):
+* Add automated testing to all the scripts in the Done section
 * Notes app
 * Task app
 * Weather app
-* Chat app 
+* Chat app
