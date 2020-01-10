@@ -12,7 +12,7 @@ They are implemented on my website [here](www.akizzlebrand.com/projects).
 
 ### In Progress:
 * [GPA Calculator](www.akizzlebrand.com/gpa-calculator)
-- The logic behind the calculator works. I am currently
+    - The logic behind the calculator works. I am currently
 implementing the functionality to add classes to the form
 that will be tracked and add to the overall GPA calculation
 once the submit button is pressed.
