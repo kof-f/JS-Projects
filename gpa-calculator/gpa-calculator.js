@@ -37,7 +37,7 @@ function addClasses(){
     newClassFieldLabelRight.innerText = "Credit Hours";
 
     // adding styling and ID to the field input
-    newClassFieldInput.classList.add("form2-input.form2-input-dark");
+    newClassFieldInput.classList.add("form2-input.form2-input-dark.w-input");
     newClassFieldInput.setAttribute("id", "class" + totalNumOfClasses + "Name");
 
     
