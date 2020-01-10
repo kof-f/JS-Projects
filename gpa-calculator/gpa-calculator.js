@@ -1,5 +1,6 @@
 
 let GPAForm = document.getElementById("wf-form-GPA-Form");
+let addMoreClassesBtn = document.getElementById("btnAddClasses");
 
 // initializing variables
 let totalNumOfClasses = 5;
@@ -9,7 +10,6 @@ let displayClassInfo = [];
 
 function addClasses(){
 
-    btnHere = document.getElementById("btnAddClasses");
     let newClassFormDiv = document.createElement("div");
     let newClassFormDivVertical = document.createElement("div");
     let newClassFieldLabel = document.createElement("LABEL");
@@ -20,7 +20,7 @@ function addClasses(){
     
     newClassFormDivVertical.appendChild(newClassFieldLabel);
     newClassFormDiv.appendChild(newClassFormDivVertical);
-    GPAForm.insertBefore(newClassFormDiv, btnHere);
+    GPAForm.insertBefore(newClassFormDiv, addMoreClassesBtn);
 }
 
 function GPACalculator(classInformation){
@@ -96,4 +96,4 @@ function startDisplay(){
     display()
 }
 GPAForm.addEventListener('submit', startDisplay);
-document.getElementById("btnAddClasses").onclick = addClasses;
+addMoreClassesBtn.onclick = addClasses;
