@@ -27,6 +27,14 @@ function addClasses(){
     newClassFormDiv.classList.add("form-div");
     newClassFormDivVertical.classList.add("form-div-vertical");
     newClassFormDivVerticalMid.classList.add("form-div-vertical");
+
+    newClassFormDivVertical.appendChild(newClassFieldLabel);
+    newClassFormDivVertical.appendChild(newClassFieldInput);
+    newClassFormDivVerticalMid.appendChild(newClassFieldLabelMid);
+    newClassFormDivRight.appendChild(newClassFieldLabelRight);
+    newClassFormDiv.appendChild(newClassFormDivVertical);
+    newClassFormDiv.appendChild(newClassFormDivVerticalMid);
+    newClassFormDiv.appendChild(newClassFormDivRight);
     
     // adding styling to the labels
     newClassFieldLabel.classList.add("field-label.gpa-calc.small");
@@ -40,14 +48,6 @@ function addClasses(){
     newClassFieldInput.classList.add("form2-input.form2-input-dark.w-input");
     newClassFieldInput.setAttribute("id", "class" + totalNumOfClasses + "Name");
 
-    
-    newClassFormDivVertical.appendChild(newClassFieldLabel);
-    newClassFormDivVertical.appendChild(newClassFieldInput);
-    newClassFormDivVerticalMid.appendChild(newClassFieldLabelMid);
-    newClassFormDivRight.appendChild(newClassFieldLabelRight);
-    newClassFormDiv.appendChild(newClassFormDivVertical);
-    newClassFormDiv.appendChild(newClassFormDivVerticalMid);
-    newClassFormDiv.appendChild(newClassFormDivRight);
     GPAForm.insertBefore(newClassFormDiv, addMoreClassesBtn);
 }
 
