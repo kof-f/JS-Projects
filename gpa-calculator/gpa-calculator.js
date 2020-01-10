@@ -88,8 +88,8 @@ function GPACalculator(classInformation){
     }
     console.log(totalGradePoints);
     console.log(totalCreditHours);
-    GPA = totalGradePoints / totalCreditHours;
-    displayClassInfo.push("Your GPA for the classes you took: " + GPA + ".");
+    calculatedGPA = totalGradePoints / totalCreditHours;
+    displayClassInfo.push("Your GPA for the classes you took: " + calculatedGPA + ".");
     displayClassInfo = displayClassInfo.join("\n");
 }
 
