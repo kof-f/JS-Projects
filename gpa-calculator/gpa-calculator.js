@@ -12,14 +12,36 @@ function addClasses(){
 
     let newClassFormDiv = document.createElement("div");
     let newClassFormDivVertical = document.createElement("div");
+    let newClassFormDivVerticalMid = document.createElement("div");
+    let newClassFormDivRight = document.createElement("div");
     let newClassFieldLabel = document.createElement("LABEL");
+    let newClassFieldLabelMid = document.createElement("LABEL");
+    let newClassFieldLabelRight = document.createElement("LABEL");
+    let newClassFieldInput = document.createElement("INPUT");
+
+    
     newClassFormDiv.classList.add("form-div");
     newClassFormDivVertical.classList.add("form-div-vertical");
+    newClassFormDivVerticalMid.classList.add("form-div-vertical");
+    
+    // adding styling to the labels
     newClassFieldLabel.classList.add("field-label.gpa-calc.small");
     newClassFieldLabel.innerText = "Class Name";
+    newClassFieldLabelMid.classList.add("field-label.gpa-calc");
+    newClassFieldLabelMid.innerText = "Letter Grade";
+    newClassFieldLabelRight.classList.add("field-label.gpa-calc");
+    newClassFieldLabelRight.innerText = "Credit Hours";
+
+    // adding styling to the field input
+    newClassFieldInput.classList.add("form2-input.form2-input-dark");
     
     newClassFormDivVertical.appendChild(newClassFieldLabel);
+    newClassFormDivVertical.appendChild(newClassFieldInput);
+    newClassFormDivVerticalMid.appendChild(newClassFieldLabelMid);
+    newClassFormDivRight.appendChild(newClassFieldLabelRight);
     newClassFormDiv.appendChild(newClassFormDivVertical);
+    newClassFormDiv.appendChild(newClassFormDivVerticalMid);
+    newClassFormDiv.appendChild(newClassFormDivRight);
     GPAForm.insertBefore(newClassFormDiv, addMoreClassesBtn);
 }
 
