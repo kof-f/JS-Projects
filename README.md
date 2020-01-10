@@ -1,4 +1,4 @@
-# JS-Projects
+# JS Projects
 
 ## Why?
 These projects were built to test my knowledge of JavaScript.
