@@ -17,9 +17,8 @@ implementing the functionality to add classes to the form
 that will be tracked and add to the overall GPA calculation
 once the submit button is pressed.
 
-### Future Work:
-* Add automated testing to all the scripts in the Done section
-* Notes app
+### Future Work (Node.js):
+* [Notes app](https://github.com/kof-f/Notes)
 * Task app
 * Weather app
 * Chat app
