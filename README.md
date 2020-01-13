@@ -19,6 +19,6 @@ once the submit button is pressed.
 
 ### Future Work (Node.js):
 * [Notes app](https://github.com/kof-f/Notes)
+* [Weather app](https://github.com/kof-f/Weather-App)
 * Task app
-* Weather app
 * Chat app
